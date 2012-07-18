@@ -1,0 +1,9 @@
+#
+namespaces: 
+  - Hirudo\SimpleSecurity
+  
+plugins:
+  - Hirudo\SimpleSecurity\Plugins\AuthorizationPlugin
+  
+templating_extensions:
+  - Hirudo/SimpleSecurity/SmartyExtensions
