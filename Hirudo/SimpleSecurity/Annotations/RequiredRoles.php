@@ -1,17 +1,17 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
+namespace Hirudo\SimpleSecurity\Annotations;
+use Doctrine\Common\Annotations\Annotation\Target;
 /**
  * Description of RequiredRoles
  *
  * @author Perseo
+ * @Target({"METHOD", "CLASS"})
  */
 class RequiredRoles {
-    //put your code here
+    /** @var array<string> */
+    public $value;
+
 }
 
 ?>

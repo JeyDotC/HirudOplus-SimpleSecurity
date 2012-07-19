@@ -1,6 +1,6 @@
 <?php
 
-use Sample\Utilities\SomeUsefulClass;
+use Hirudo\SimpleSecurity\Models\Components\SimpleSecurityComponent;
 
 /**
  * «Copyright 2012 Jeysson José Guevara Mendivil(JeyDotC)» 
@@ -22,13 +22,21 @@ use Sample\Utilities\SomeUsefulClass;
  */
 
 /**
- *
+ * 
  * @param array $params
- * @param Smarty_Internal_Template $template
- * @return <type>
+ * @param string $content
+ * @param type $template
+ * @param boolean $repeat
+ * @return string
  */
-function smarty_block_for_roles($params, $content, $template, &$repeat) {
-    
+function smarty_block_display_for($params, $content, $template, &$repeat) {
+    if (!$repeat) {
+        $roles = $params["roles"];
+        $component = new SimpleSecurityComponent();
+        if (is_array($roles) && $component->userHasRoles($roles)) {
+            return $content;
+        }
+    }
 }
 
 ?>
